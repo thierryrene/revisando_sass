@@ -158,9 +158,87 @@ div {
 .title {
   font-size: 2em; }
 
-/* @if e @for */
+/* @if / @else if / @else */
 body {
   font-family: Arial, sans-serif; }
+
+/* @for */
+.for-test-class {
+  background-color: blue; }
+
+.for-test-class {
+  background-color: blue; }
+
+.for-test-class {
+  background-color: blue; }
+
+.for-test-class {
+  background-color: blue; }
+
+.for-test-class-2 {
+  background-color: crimson; }
+
+.for-test-class-2 {
+  background-color: crimson; }
+
+.for-test-class-2 {
+  background-color: crimson; }
+
+.for-test-class-2 {
+  background-color: crimson; }
+
+.for-test-class-2 {
+  background-color: crimson; }
+
+#for-teste-id {
+  content: "10"; }
+
+#for-teste-id {
+  content: "9"; }
+
+#for-teste-id {
+  content: "8"; }
+
+#for-teste-id {
+  content: "7"; }
+
+#for-teste-id {
+  content: "6"; }
+
+#for-teste-id {
+  content: "5"; }
+
+#for-teste-id {
+  content: "4"; }
+
+#for-teste-id {
+  content: "3"; }
+
+#for-teste-id {
+  content: "2"; }
+
+#for-teste-id {
+  content: "1"; }
+
+.for-count-selector, #for-count-selector-1, #for-count-selector-2, #for-count-selector-3, #for-count-selector-4, #for-count-selector-5 {
+  height: 200px;
+  width: 150px;
+  padding: 10px 15px 10px 15px; }
+
+#for-count-selector-1 {
+  background-color: #424242; }
+
+#for-count-selector-2 {
+  background-color: #424242; }
+
+#for-count-selector-3 {
+  background-color: #424242; }
+
+#for-count-selector-4 {
+  background-color: #424242; }
+
+#for-count-selector-5 {
+  background-color: #424242; }
 
 /* @import do layout.scss */
 @media screen and (max-width: 320px) {

@@ -303,7 +303,7 @@ div {
 
 //além da multiplicação, podemos utilizar qualquer operação padrão da matemática no Sass.
 
-/* @if e @for */
+/* @if / @else if / @else */
 
 // variável de apoio para a condição. o valor da variável é utilizado para criar a condição.
 $font-base: sans-serif;
@@ -316,6 +316,55 @@ body {
     // como toda condição if, também podemos utilizar o if else. você pode utilizar quantos desejar.
     @else if $font-base == sans-serif {
         font-family: Arial, sans-serif;
+    // e para finalizar temos apenas o else. note que não é necessário definir a variável neste, visto que ele é a ultima opção caso as condições anteriores sejam falsas.
+    } @else {
+        font-family: tahoma;
     }
     // note no arquivo CSS que apenas é compilado a condição verdadeira.
+}
+
+/* @for */
+
+// podemos utilizar uma estrutura de repetição de estilos com o sass de duas maneiras. a primeira, a seguir, é declarada com o parametro "to", que executa a repetição até o penultimo item da estrutura
+@for $i from 1 to 5 {
+    .for-test-class {
+        background-color: blue;
+    }
+}
+// note no arquivo compilado que foram criados quatro seletores de estilos exatamente iguais para a mesma class .for-test-class, o ultimo foi ignorado devido ao paramatro "to"
+
+// a segunda maneira de utilizar o @for, é com o parametro "through", que cumpre toda a estrutura de repetição.
+@for $i from 1 through 5 {
+    .for-test-class-2 {
+        background-color: crimson;
+    }
+}
+// note no arquivo compilado que agora são declarados cinco seletores.
+
+// vamos criar um contador junto ao seletor para declarar estilos para diversos elementos com apenas uma estrutura @for
+// declaramos uma variável com um valor para auxiliar o contador
+$contador: 10;
+
+// note que utilizamos a variável para determinar o valor inicial do contador, que vai de 10 a 1.
+@for $i from $contador through 1 {
+    #for-teste-id {
+        // para cada seletor é definido um content com os valores descrescentes de 1 a 10. exemplo no arquivo compilado.
+        content: "#{$i}";
+    }
+}
+
+// exemplo utilizando o contador para gerar criar os seletores. vamos criar uma class apenas para incorporar o @extend no exemplo.
+.for-count-selector {
+    height: 200px;
+    width: 150px;
+    padding: 10px 15px 10px 15px;
+}
+
+@for $j from 1 through 5 {
+    // note que utilizamos a variável que efetua a contagem para complementar a declaração do seletor.
+    #for-count-selector-#{$j} {
+        // utilizamos o recurso @extend para reutilizar os estilos da class .for-count-selector.
+        @extend .for-count-selector;
+        background-color: #424242;
+    }
 }
