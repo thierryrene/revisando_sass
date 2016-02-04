@@ -1,0 +1,15 @@
+/* Arquivo de estilo principal com imports */
+
+// Para importar arquivos scss basta apontar o caminho do arquivo, entre parenteses, com o recurso @import. a ordem na qual os arquivos são requisitados, é a ordem na qual o CSS será gerado no arquivo compilado (isso pode afetar o estilo de um projeto). note que podemos utilizar uma virgula para declarar o import de diversos elementos.
+// import de arquivo parcial. note o nome do arquivo, no diretório, que inicia com "_" para indicar que ele apenas deve ser importado. o recurso facilita a organização dos arquivos.
+@import "variables.scss";
+@import "general.scss", "layout.scss";
+
+// Mais exemplos do @import
+// Exemplo importanto URL
+@import url("#");
+@import "https://#";
+@import "http://#";
+// Exemplo importando arquivo e especificando media queries
+@import "layout.scss" print;
+

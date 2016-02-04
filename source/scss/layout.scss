@@ -1,0 +1,94 @@
+/* @import do layout.scss */
+
+// Declarando a media com a sintaxe mais simples, conforme o CSS padrão
+@media screen and (max-width: 320px) {
+    float: none;
+    font-style: tahoma;
+}
+
+// Exemplo de media mesclando estilos
+@media screen and (min-width: 768px) {
+    // Note que a mescla/nesting de estilos é feita no padrão Sass
+    p {
+        font-style: tahoma;
+        &:after {
+            font-style: sans-serif;
+            content: "teste";
+            border: solid 1px black;
+        }
+    }
+    a {
+        display: none;
+        &:after {
+            border: none;
+        }
+    }
+}
+
+// Exemplo de media queries funcionais
+// Podemos utilizar variáveis para facilitar a declaração de media queries
+@media #{$desktop-breakpoint} {
+    span {
+        font-style: tahoma;
+        &:after {
+            font-style: sans-serif;
+            content: "teste";
+            border: solid 1px black;
+        }
+    }
+    a {
+        display: none;
+        &:after {
+            border: none;
+        }
+    }
+    // E por fim, também podemos mesclar media queries, conforme a linha de código abaixo. Note, no arquivo compilado, que são mescladas as queries do desktop e a portrait.
+    @media (orientation: portrait) {
+        border-top: solid black 3px;
+    }
+}
+
+
+/* Exemplo do recurso @extend */
+
+// Com o @extend podemos utilizar os estilos de um seletor, em outro, de maneira a complementar as propriedades deste. 
+// Vamos fazer um exemplo com um botão, com algumas classes para mudar levemente sua aparência. os estilos que criam o botão são padrões, o que determina ação do botão pode indicar sua aparência (botão vermelho, cancelar, botão verde, confirmar)
+.btn {
+    background: #3498db;
+    border-radius: 28px;
+    font-family: Arial;
+    color: #ffffff;
+    font-size: 20px;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+}
+// Classe com @extend do .btn, para alterar o plano de fundo e cor da fonte
+.btn-vermelho {
+    @extend .btn;
+    color: snow;
+    background-color: red;
+}
+.btn-verde {
+    @extend .btn;
+    color: snow;
+    background-color: green;
+}
+// Note no arquivo CSS compilado que o as classes são criadas todas mescladas, a fim de reutilizar as propriedades já existentes nos seletores que estendemos.
+
+// Exemplo com media queries. note que ao utilizar media queries, não podemos extender um item, fora do seletor de media, pois não é localizado o resource. por isso declaramos uma class .btn2, para então criar mais um botão com o recurso @extend dentro de uma media querie.
+@media screen and (max-width: 500px) {
+    .btn2 {
+        background: #3498db;
+        border-radius: 28px;
+        font-family: Arial;
+        color: #ffffff;
+        font-size: 20px;
+        padding: 10px 20px 10px 20px;
+        text-decoration: none;
+    }
+    .btn-perigo {
+        @extend .btn2;
+        color: snow;
+        background-color: orange;
+    }
+}

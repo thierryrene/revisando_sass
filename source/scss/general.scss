@@ -1,0 +1,321 @@
+/* @import do general.scss */
+
+/* arquivo de estilo de orientação para o post de revisão do Sass. Abra o arquivo .scss para consulta, onde constam todos os comentários sobre o código. o arquivo css pode não fazer muito sentido.*/
+
+/* Comentários */
+
+//este tipo de comentário não é compilado para o arquivo css
+
+/* este tipo de comentário é compilado no arquivo css */
+
+// comentário
+/*
+*  multi
+*  linha
+*  compilável
+*/
+
+/* Mesclando Estilos */
+
+// podemos utilizar a seguinte sintaxe para mesclar os estilos. note que podemos utilizar a indentação como referência 
+
+p {
+    margin-bottom: 1.3em;
+    color: #666;
+    a {
+        color: crimson;
+    }
+}
+
+// também podemos mesclar os estilos com base nos seletores css, conforme o exemplo abaixo 
+
+a {
+    text-decoration: none;
+    &:hover {
+        text-decoration: underline;
+    }
+    &.qualquerclass {
+        text-decoration: underline;
+    }
+    &#qualquerID {
+        text-decoration: underline;
+    }
+    &-filho {
+        text-decoration: underline;
+    }
+}
+
+// outro exemplo com seletores css. mais informações do arquivo .scss. 
+
+#demo {
+// o & basicamente replica o elemento pai
+    margin: .5em;
+    //cria novo seletor #demo-filho
+    &-filho {
+        margin: .5em;
+    }
+    //cria novo seletor #demofilho
+    &filho {
+        margin: .5em;
+    }
+    //cria estilo especifico para o elemento #demo com a class .filho - #demo.filho
+    &.filho {
+        margin: .5em;
+    }
+    //determina o estilo aplicado para o elemento com a class .filho que tem o elemento pai com o ID #demo
+    & .filho {
+        margin: .5em;
+    }
+    //O > significa que estilo declarado vai ser aplicado apenas no primeiro elemento filho (se tiver três tags a, apenas a primeira será afetada).
+    > p {
+        a {
+            color: #424242;
+        }
+    }
+}
+
+/* Mesclando propriedades de estilo */
+
+// código original. comentado, apenas para comparação com o exemplo abaixo.
+body {
+    font-family: Arial, sans-serif;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 1.45;
+    padding: 0px;
+}
+
+
+// código com as propriedades mescladas / o código compilado vai ser igual o código acima. note que é declara a propriedade e depois podemos declarar cada um das sub propriedades. 
+body {
+    font: {
+        family: Arial, sans-serif;
+        size: 16px;
+        weight: normal;        
+    }
+    line-height: 1.45;
+    padding: {
+        top: 0px;
+        left: 0px;
+        bottom: 0px;
+        right: 0px;
+    }
+}
+
+// modelo ainda mais simplificado compatível apenas com arquivos .sass. exemplo comentado para não causar conflito na compilação. 
+// font: normal 16px Arial, sans-serif; 
+
+/* Variáveis */
+
+// as variáveis guardam valores que podemos reutilizar por todo o código. segue exemplo, onde o simbolo $ determina que o item é uma variável que guarda um valor. 
+$color-base: #424242;
+$text-pattern-font-family: Tahoma, sans-serif;
+
+// podemos utilizar as variáveis declaradas da seguinte maneira. note que no arquivo compilado, as variáveis não são exibidas, ja que não tem utilidade e não fazem o menor sentido no CSS puro. 
+
+body {
+    background-color: $color-base;
+    font-family: $text-pattern-font-family;
+}
+
+// os valores de uma variável sempre ficam disponíveis apenas para o elementos abaixo deste. no caso do exemplo acima não podemos declarar as variáveis depois de requisita-las. 
+
+// para utilizar variáveis globalmente, utiliza o parametro !global (código comentado pois variáveis não são compiladas)
+/*
+body {
+     $body-color-base: #424242 !global;
+}
+*/
+// note que no exemplo acima, declaramos a variável dentro do body, que é o elemento pai, com o parametro !global. A variável pode ser utilizada em qualquer propriedade do arquivo.
+
+/* Interpolando variáveis */
+
+//declaramos a variável com o valor que desejamos reutilizar
+$variavel: "valor-da-variavel";
+
+//podemos utilizar o valor da variável declarada da seguinte maneira para interpolar a variável
+.elemento-#{$variavel} {
+    color: 424242;
+}
+
+.btn-#{$variavel} {
+    color: 424242;
+}
+.sidebar-#{$variavel} {
+    color: 424242;
+}
+
+//outro exemplo de de interpolação de variável, neste com a propriedade content
+:before {
+	content: "#{$variavel}";
+}
+
+/* Tipos de dados suportados pelo Sass */
+
+/* Números */
+
+div {
+	margin: 10px; //decimal com unidade de medida
+	line-height: 1.5; //decimal sem unidade de medida
+	font-weight: 500; //números inteiros sem medidas
+	padding: 10%; //porcentagem
+}
+
+/* Strings */
+
+div {
+    font-family: "Helvetica", Arial, sans-serif; //suporte para strings com ou sem aspas
+    font-weight: bold; //mais um exemplos de string sem aspas
+}
+
+/* Colors */
+
+div {
+	color: #424242; //hex colors
+	background-color: crimson; //nome da cor
+	border-color: rgba(0, 0, 0, 0); //RGBA colors
+	border-top-color: hsl(255, 10%, 10%); //HSL colors
+}
+
+/* Listas */
+
+div {
+	background-position: fixed; //lista com apenas um item
+	padding: 10px 10px 10px 10px; //lista com quatro itens
+	font-family: 'Helvetica', Arial, sans-serif; //lista com três itens e vírgula
+	box-shadow: 0 0 3px #999, 10px 10px 20px #555; //duas listas em uma só propriedade
+	font: 400 15px/1.5 Georgia, sans-serif; //exemplo de quatro propriedades em apenas uma
+}
+
+/* Maps */
+
+//podemos utilizar o recurso da seguintes maneiras. note que qualquer tipo de dado apresentando anteriormente são aceitos.
+
+//aqui utilizamos exemplos de cores com a referência em HEX e com string
+$colors: (
+    1: #424242,
+    2: crimson,
+    3: cornflowerblue
+);
+
+//exemplo do índice declarado como string
+$colors-plus: (
+    'color-1': crimson,
+    'color-2': #cccccc
+);
+
+//neste criamos um exemplo com indice customizado. após compilar o arquivo esse exemplo fica mais claro.
+$margins: (
+    small: 10px 20px,
+    medium: 10px,
+    large: 30px
+);
+
+//exemplo com lista de propriedades. note que neste exemplo declaramos as propriedades da font dentro de parenteses, para não apresentar conflito com o parenteses da propriedade declarada.
+$fonts: (
+    option-1: (Arial, sans-serif),
+    option-2: (Helvetica, sans-serif)
+);
+
+//exemplo utilizando os valores declarados nos maps. note as diversas formas de declarar o valor dos índices, e as propriedades são separadas com ";" ao invés de apenas "," como no maps.
+footer {
+    background-color: map-get($colors, 1);
+    border-color: map-get($colors-plus, 'color-2');
+    margin: map-get($margins, large);
+    padding: map-get($margins, small);
+    font-family: map-get($fonts, option-1);
+}
+
+/* Operações matemáticas */
+
+/* Operações simples */
+
+div {
+    //soma
+    padding: 10px + 10px;
+    //subtração
+    margin: 10px - 5px;
+    //quando a operação for multiplicação ou divisão, a propriedade só pode ter uma unidade de valor. por exemplo, 10px (unidade) multiplicado por 5.
+    //multiplicação
+    font-size: 10px * 5;
+    //divisão. exemplo com e sem parenteses, que determina a ordem da operação.
+    width: (10px / 2);
+    height: 10px + 10px / 2;
+}
+
+/* Operações complexas */
+
+div {
+    //divisão com números decimais
+    font: 20px/1.5;
+    //operação com o valor de uma variável
+    $baseline: 2em;
+    margin-bottom: $baseline / 2;
+    //divisão entre aspas
+    margin-top: (2em / 2);
+    //expressão com soma e divisão
+    padding: 10px + 20px / 2;
+    &:after {
+        //operações lógicas. retornam valores true ou false.
+        content: 10px > 20px;
+    }
+    //exemplo de expressão com e sem parenteses, que afeta a ordem da operação.
+    margin-left: 10px + 10px * 3;
+    margin-right: (10px + 10px) * 3;
+}
+
+/* Operações com strings */
+
+div {
+    //neste exemplo, a ordem da propriedade entre aspas afeta o código compilado. Se você deseja que a propriedade seja compilada entre aspas, o primeiro elemento deve estar entre aspas.
+    //propriedade compilado sem aspas
+    font-family: sans + "-serif";
+    //propriedade compilada com aspas
+    font-family: "sans" + -serif;
+    //somando duas strings
+    &:before {
+        content: "clique" + " aqui";
+    }
+    //declarando uma variável com valor string e utilizando o mesmo com interpolação em outra string
+    &:after {
+        $content: "default";
+        //exemplo com operação matemática, graças a interpolação
+        content: "Este é um botão #{$content} com medida de #{15 * 5} px";
+        //exemplo sem a interpolação na operação
+        content: "Este é um botão #{$content} com medida de 15 * 5 px";
+    }
+}
+
+/* Operações entre variáveis */
+
+//imagine que a fonte de texto da página tem uma medida padrão, e que o título do texto seria duas vezes o tamanho da fonte padrão.
+
+$font-base: 1em;
+$font-title: 2 * $font-base;
+
+div {
+	font-size: $font-base;
+}
+
+.title {
+	font-size: $font-title;
+}
+
+//além da multiplicação, podemos utilizar qualquer operação padrão da matemática no Sass.
+
+/* @if e @for */
+
+// variável de apoio para a condição. o valor da variável é utilizado para criar a condição.
+$font-base: sans-serif;
+
+body {
+    // declaramos com o if, caso a variável $font-base seja igual a serif, que a fonte padrão para o body seja Georgia.
+    @if $font-base == serif {
+        font-family: Georgia, serif;
+    }
+    // como toda condição if, também podemos utilizar o if else. você pode utilizar quantos desejar.
+    @else if $font-base == sans-serif {
+        font-family: Arial, sans-serif;
+    }
+    // note no arquivo CSS que apenas é compilado a condição verdadeira.
+}
