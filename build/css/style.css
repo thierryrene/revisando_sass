@@ -1,305 +1,71 @@
-@charset "UTF-8";
-/* Arquivo de estilo principal com imports */
-/* @import do general.scss */
-/* arquivo de estilo de orientação para o post de revisão do Sass. Abra o arquivo .scss para consulta, onde constam todos os comentários sobre o código. o arquivo css pode não fazer muito sentido.*/
-/* Comentários */
-/* este tipo de comentário é compilado no arquivo css */
 /*
-*  multi
-*  linha
-*  compilável
+Error: Invalid CSS after "@each ": expected "$", was "($lista-2, $lis..."
+        on line 388 of source/scss/general.scss
+        from line 6 of source/scss/style.scss
+
+383:     ##{$lista}-section {
+384:         background-color: #{$lista};
+385:     }
+386: }
+387: 
+388: @each ($lista-2, $lista-3) in #424242, #542366, #000234 {
+389:     ##{$lista-2}-block {
+390:         border: solid 2px #{$lista-2};
+391:     }
+392: }
+
+Backtrace:
+source/scss/general.scss:388
+source/scss/style.scss:6
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:1161:in `expected'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:1097:in `expected'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:1092:in `tok!'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:289:in `each_directive'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:218:in `special_directive'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:193:in `directive'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:656:in `block_child'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:649:in `block_contents'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:117:in `stylesheet'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/scss/parser.rb:42:in `parse'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:403:in `_to_tree'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:309:in `to_tree'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:324:in `block in visit_import'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:88:in `block in with_import'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:88:in `with_import'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:323:in `visit_import'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `block in visit'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:79:in `block in with_base'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:115:in `with_frame'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/stack.rb:79:in `with_base'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:158:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `block in visit_children'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `map'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:52:in `visit_children'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:167:in `block in visit_children'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:179:in `with_environment'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:166:in `visit_children'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `block in visit'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:186:in `visit_root'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/base.rb:36:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:157:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/visitors/perform.rb:8:in `visit'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/root_node.rb:36:in `css_tree'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/tree/root_node.rb:29:in `render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:378:in `_render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/engine.rb:295:in `render_with_sourcemap'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/exec/sass_scss.rb:412:in `run'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/exec/sass_scss.rb:63:in `process_result'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/exec/base.rb:52:in `parse'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/lib/sass/exec/base.rb:19:in `parse!'
+/usr/local/rvm/gems/ruby-2.2.1/gems/sass-3.4.19/bin/sass:13:in `<top (required)>'
+/usr/local/rvm/gems/ruby-2.2.1/bin/sass:23:in `load'
+/usr/local/rvm/gems/ruby-2.2.1/bin/sass:23:in `<main>'
+/usr/local/rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `eval'
+/usr/local/rvm/gems/ruby-2.2.1/bin/ruby_executable_hooks:15:in `<main>'
 */
-/* Mesclando Estilos */
-@import url("#");
-@import "https://#";
-@import "http://#";
-@import "layout.scss" print;
-p {
-  margin-bottom: 1.3em;
-  color: #666; }
-p a {
-  color: crimson; }
-
-a {
-  text-decoration: none; }
-a:hover {
-  text-decoration: underline; }
-a.qualquerclass {
-  text-decoration: underline; }
-a#qualquerID {
-  text-decoration: underline; }
-a-filho {
-  text-decoration: underline; }
-
-#demo {
-  margin: .5em; }
-#demo-filho {
-  margin: .5em; }
-#demofilho {
-  margin: .5em; }
-#demo.filho {
-  margin: .5em; }
-#demo .filho {
-  margin: .5em; }
-#demo > p a {
-  color: #424242; }
-
-/* Mesclando propriedades de estilo */
-body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.45;
-  padding: 0px; }
-
-body {
-  font-family: Arial, sans-serif;
-  font-size: 16px;
-  font-weight: normal;
-  line-height: 1.45;
-  padding-top: 0px;
-  padding-left: 0px;
-  padding-bottom: 0px;
-  padding-right: 0px; }
-
-/* Variáveis */
-body {
-  background-color: #424242;
-  font-family: Tahoma, sans-serif; }
-
-/*
-body {
-     $body-color-base: #424242 !global;
-}
-*/
-/* Interpolando variáveis */
-.elemento-valor-da-variavel {
-  color: 424242; }
-
-.btn-valor-da-variavel {
-  color: 424242; }
-
-.sidebar-valor-da-variavel {
-  color: 424242; }
-
-:before {
-  content: "valor-da-variavel"; }
-
-/* Tipos de dados suportados pelo Sass */
-/* Números */
-div {
-  margin: 10px;
-  line-height: 1.5;
-  font-weight: 500;
-  padding: 10%; }
-
-/* Strings */
-div {
-  font-family: "Helvetica", Arial, sans-serif;
-  font-weight: bold; }
-
-/* Colors */
-div {
-  color: #424242;
-  background-color: crimson;
-  border-color: transparent;
-  border-top-color: #18171c; }
-
-/* Listas */
-div {
-  background-position: fixed;
-  padding: 10px 10px 10px 10px;
-  font-family: 'Helvetica', Arial, sans-serif;
-  box-shadow: 0 0 3px #999, 10px 10px 20px #555;
-  font: 400 15px/1.5 Georgia, sans-serif; }
-
-/* Maps */
-footer {
-  background-color: #424242;
-  border-color: #cccccc;
-  margin: 30px;
-  padding: 10px 20px;
-  font-family: Arial, sans-serif; }
-
-/* Operações matemáticas */
-/* Operações simples */
-div {
-  padding: 20px;
-  margin: 5px;
-  font-size: 50px;
-  width: 5px;
-  height: 15px; }
-
-/* Operações complexas */
-div {
-  font: 20px/1.5;
-  margin-bottom: 1em;
-  margin-top: 1em;
-  padding: 20px;
-  margin-left: 40px;
-  margin-right: 60px; }
-div:after {
-  content: false; }
-
-/* Operações com strings */
-div {
-  font-family: sans-serif;
-  font-family: "sans-serif"; }
-div:before {
-  content: "clique aqui"; }
-div:after {
-  content: "Este é um botão default com medida de 75 px";
-  content: "Este é um botão default com medida de 15 * 5 px"; }
-
-/* Operações entre variáveis */
-div {
-  font-size: 1em; }
-
-.title {
-  font-size: 2em; }
-
-/* @if / @else if / @else */
-body {
-  font-family: Arial, sans-serif; }
-
-/* @for */
-.for-test-class {
-  background-color: blue; }
-
-.for-test-class {
-  background-color: blue; }
-
-.for-test-class {
-  background-color: blue; }
-
-.for-test-class {
-  background-color: blue; }
-
-.for-test-class-2 {
-  background-color: crimson; }
-
-.for-test-class-2 {
-  background-color: crimson; }
-
-.for-test-class-2 {
-  background-color: crimson; }
-
-.for-test-class-2 {
-  background-color: crimson; }
-
-.for-test-class-2 {
-  background-color: crimson; }
-
-#for-teste-id {
-  content: "10"; }
-
-#for-teste-id {
-  content: "9"; }
-
-#for-teste-id {
-  content: "8"; }
-
-#for-teste-id {
-  content: "7"; }
-
-#for-teste-id {
-  content: "6"; }
-
-#for-teste-id {
-  content: "5"; }
-
-#for-teste-id {
-  content: "4"; }
-
-#for-teste-id {
-  content: "3"; }
-
-#for-teste-id {
-  content: "2"; }
-
-#for-teste-id {
-  content: "1"; }
-
-.for-count-selector, #for-count-selector-1, #for-count-selector-2, #for-count-selector-3, #for-count-selector-4, #for-count-selector-5 {
-  height: 200px;
-  width: 150px;
-  padding: 10px 15px 10px 15px; }
-
-#for-count-selector-1 {
-  background-color: #424242; }
-
-#for-count-selector-2 {
-  background-color: #424242; }
-
-#for-count-selector-3 {
-  background-color: #424242; }
-
-#for-count-selector-4 {
-  background-color: #424242; }
-
-#for-count-selector-5 {
-  background-color: #424242; }
-
-/* @import do layout.scss */
-@media screen and (max-width: 320px) {
-  float: none;
-  font-style: tahoma; }
-@media screen and (min-width: 768px) {
-  p {
-    font-style: tahoma; }
-  p:after {
-    font-style: sans-serif;
-    content: "teste";
-    border: solid 1px black; }
-
-  a {
-    display: none; }
-  a:after {
-    border: none; } }
-@media screen and (max-width: 1280px) {
-  span {
-    font-style: tahoma; }
-  span:after {
-    font-style: sans-serif;
-    content: "teste";
-    border: solid 1px black; }
-
-  a {
-    display: none; }
-  a:after {
-    border: none; } }
-@media screen and (max-width: 1280px) and (orientation: portrait) {
-  border-top: solid black 3px; }
-/* Exemplo do recurso @extend */
-.btn, .btn-vermelho, .btn-verde {
-  background: #3498db;
-  border-radius: 28px;
-  font-family: Arial;
-  color: #ffffff;
-  font-size: 20px;
-  padding: 10px 20px 10px 20px;
-  text-decoration: none; }
-
-.btn-vermelho {
-  color: snow;
-  background-color: red; }
-
-.btn-verde {
-  color: snow;
-  background-color: green; }
-
-@media screen and (max-width: 500px) {
-  .btn2, .btn-perigo {
-    background: #3498db;
-    border-radius: 28px;
-    font-family: Arial;
-    color: #ffffff;
-    font-size: 20px;
-    padding: 10px 20px 10px 20px;
-    text-decoration: none; }
-
-  .btn-perigo {
-    color: snow;
-    background-color: orange; } }
-
-/*# sourceMappingURL=style.css.map */
+body:before {
+  white-space: pre;
+  font-family: monospace;
+  content: "Error: Invalid CSS after \"@each \": expected \"$\", was \"($lista-2, $lis...\"\A         on line 388 of source/scss/general.scss\A         from line 6 of source/scss/style.scss\A \A 383:     ##{$lista}-section {\A 384:         background-color: #{$lista};\A 385:     }\A 386: }\A 387: \A 388: @each ($lista-2, $lista-3) in #424242, #542366, #000234 {\A 389:     ##{$lista-2}-block {\A 390:         border: solid 2px #{$lista-2};\A 391:     }\A 392: }"; }

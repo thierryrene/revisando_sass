@@ -368,3 +368,25 @@ $contador: 10;
         background-color: #424242;
     }
 }
+
+/* @each e @while */
+
+/* testes com as estruturas de repetição @each */
+
+@each $section in featured, about, contact {
+    ##{$section}-section {
+        background-image: url("img-#{$section}.png");
+    }
+}
+
+@each $lista in black, white, red {
+    ##{$lista}-section {
+        background-color: #{$lista};
+    }
+}
+
+@each ($lista-2, $lista-3) in #424242, #542366, #000234 {
+    ##{$lista-2}-block {
+        border: solid 2px #{$lista-2};
+    }
+}
