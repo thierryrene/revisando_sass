@@ -373,20 +373,44 @@ $contador: 10;
 
 /* testes com as estruturas de repetição @each */
 
+// inciamos com o parametro @each seguido de uma variável, e uma lista. basicamente, a variável vai assumir o valor de cada item da lista
 @each $section in featured, about, contact {
+    // com a variável assumindo cada um dos valores, definimos a mesma interpolada ao nome de um id de estilo. note que são utilizados dois símbolos # e lembre que o primeiro é para definir o id no css, o segundo é para definir a interpolação da variável.
     ##{$section}-section {
+        // aqui também interpolamos a variável para alterar o nome do arquivo requisitado no background-image.
         background-image: url("img-#{$section}.png");
     }
 }
 
+// outro exemplo de utilização do @each, definindo as cores de algumas seções.
 @each $lista in black, white, red {
     ##{$lista}-section {
         background-color: #{$lista};
     }
 }
 
-@each ($lista-2, $lista-3) in #424242, #542366, #000234 {
-    ##{$lista-2}-block {
-        border: solid 2px #{$lista-2};
+// exemplo com mais de uma variável e mais de uma lista. note que devemos separar as variáveis e as listas com uma virgula.
+
+// neste exemplo a variável $section vai assumir os valores featured e about e a variável $color, os valor red e black.
+@each $section, $color in (featured, red), (about, black) {
+    // interpolamos a variáveil section para criar a class section-featured e a section-about.
+    .section-#{$section} {
+        // aqui definimos a cor utilizando os valores da variável $color, red e black.
+        background-color: $color;
     }
 }
+
+// exemplo do @each com map
+
+// primeiro declaramos o map e seus valores
+$section-colors: (
+    featured-2: red,
+    about-2: green
+);
+
+@each $section, $color in $section-colors {
+    .section-#{$section} {
+        background-color: $color;
+    }
+}
+
