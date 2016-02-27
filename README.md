@@ -4,13 +4,15 @@ Arquivos de auxílio para revisão da linguagem Sass. Repositório complementa o
 
 Todo o ambiente está criado e configurado neste repositório.
 
-Se clonar o repositório, depois basta executar o comando NPM INSTALL para instalar as dependências do projeto.
+Se clonar o repositório, depois basta executar o comando 'npm install' para instalar as dependências do projeto.
 
-Após clonar o repositório, no terminal, basta executar o comando GRUNT WATCH e iniciar a edição dos arquivos .scss.
+Após clonar o repositório, no terminal, basta executar o comando 'grunt watch' e iniciar a edição dos arquivos .scss.
 
 Post no Web Social Dev
-http://websocialdev.com/introducao-linguagem-sass/
+
+[Introdução a linguagem Sass/Scss](http://websocialdev.com/introducao-linguagem-sass/)
+
 
 Link para documento no Google Docs
 
-https://docs.google.com/document/d/15aZrVZHktGLKgkuVgiY2GsjdHb9fQMEWiqRUKknN8dA/pub
+[Link do artigo no Google Docs](https://docs.google.com/document/d/15aZrVZHktGLKgkuVgiY2GsjdHb9fQMEWiqRUKknN8dA/pub)
