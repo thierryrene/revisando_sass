@@ -272,6 +272,47 @@ body {
 .section-about-2 {
   background-color: green; }
 
+/* testes com as estruturas de repetição @while */
+.item-1 {
+  margin-top: 5px; }
+
+.item-2 {
+  margin-top: 10px; }
+
+.item-3 {
+  margin-top: 15px; }
+
+.item-4 {
+  margin-top: 20px; }
+
+.item-5 {
+  margin-top: 25px; }
+
+.item-6 {
+  margin-top: 30px; }
+
+.item-7 {
+  margin-top: 35px; }
+
+.item-8 {
+  margin-top: 40px; }
+
+.item-9 {
+  margin-top: 45px; }
+
+/* testando Sass Mixins */
+.button-default {
+  background-color: #424242;
+  border: snow 2px solid;
+  padding: 10px 15px 10px 15px;
+  color: snow; }
+
+.button {
+  border-radius: 5px; }
+
+.button {
+  border-radius: 10px; }
+
 /* @import do layout.scss */
 @media screen and (max-width: 320px) {
   float: none;

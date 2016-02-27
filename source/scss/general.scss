@@ -401,16 +401,62 @@ $contador: 10;
 }
 
 // exemplo do @each com map
-
 // primeiro declaramos o map e seus valores
 $section-colors: (
     featured-2: red,
     about-2: green
 );
 
+// aqui definimos duas variáveis para cada uma assumir o valor de um item da lista. cada variável, vai assumir um valor no map, neste caso, a $section no primeiro loop assumi o valor featured-2, e a $color, o valor red, no segundo loop, a $section ficaria com o about-2 e a $color com green, e assim por diante, de acordo com o map.
 @each $section, $color in $section-colors {
     .section-#{$section} {
         background-color: $color;
     }
 }
 
+/* testes com as estruturas de repetição @while */
+
+// primeiro definimos uma variável como contador inicial
+$i: 1;
+
+// depois declaramos a diretiva @while, definindo que o código será executado até que o contador chegue ao valor 10.
+@while $i < 10 {
+    //interpolamos o contador no seletor para criar classes diferentes em cada loop
+    .item-#{$i} {
+        //definimos que a margin top se inicia com 5px e sempre é multiplicada pelo valor atual do contador.
+        margin-top: 5px * $i;
+        // linha que define o funcionamento do contador. toda vez que o código passar por aqui, o contador é somado ao número um, até alcançar o limite, que é 10, onde o while é finalizado.
+        $i: $i + 1;
+    }
+}
+// o resultado são diversas classes declaradas, cada uma com um nome, e suas propriedades definidas de acordo com cada seletor. Note que conseguimos personalizar o valor de cada estilo em cada looping, graças ao contador.
+
+/* testando Sass Mixins */
+
+// criamos um mixin chamado button com alguns estilos
+@mixin button {
+    background-color: #424242;
+    border: snow 2px solid;
+    padding: 10px 15px 10px 15px;
+}
+
+// agora utilizamos o mixin para complementar os estilos de um novo botão com a class button-default.
+.button-default {
+    @include button;
+    color: snow;
+}
+
+// exemplo que diferencia o mixin do recurso extends. Podemos utilizar parâmetros de informação com os mixins, conforme o exemplo abaixo. Note que definimos um valor padrão para a variável $radius.
+@mixin round($radius: 10px) {
+    border-radius: $radius;
+}
+
+// neste exemplo especificamos o valor para a variável $radius, que substitui o valor padrão.
+.button {
+    @include round(5px);
+}
+
+// neste exemplo não definimos valor, então é compilado o valor padrão que definimos na variável, de 10px.
+.button {
+    @include round;
+}
