@@ -8,10 +8,13 @@ Se clonar o repositório, depois basta executar o comando `npm install` para ins
 
 Após clonar o repositório, no terminal, basta executar o comando `grunt watch` e iniciar a edição dos arquivos .scss.
 
+<hr>
+
 Post no Web Social Dev
 
 [Introdução a linguagem Sass/Scss](http://websocialdev.com/introducao-linguagem-sass/)
 
+<hr>
 
 Link para documento no Google Docs
 
